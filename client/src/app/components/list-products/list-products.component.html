@@ -3,43 +3,42 @@
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <div class="card-body text-center">
-          <span class="title">LISTADO DE nameS</span>
-          <button class="btn btn-success float-end" routerLink="/crear-name">
-            NUEVO
+          <span class="title">Product List</span>
+          <button class="btn btn-success float-end" routerLink="/create-product">
+            Add Product
           </button>
-          <table class="table table-striped mt-3">
+          <table
+            *ngIf="listProducts.length > 0"
+            class="table table-striped mt-3"
+          >
             <thead>
               <tr>
-                <th scope="col">name</th>
-                <th scope="col">category</th>
-                <th scope="col">location</th>
-                <th scope="col">price</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Location</th>
+                <th scope="col">Price</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Coca Cola</td>
-                <td>Bebida</td>
-                <td>Buenos Aires</td>
-                <td>2</td>
+              <tr *ngFor="let product of listProducts">
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.location }}</td>
+                <td>{{ product.price | currency: "USD" }}</td>
                 <td>
-                  <i class="fas fa-edit text-primary"></i>
-                  <i class="fas fa-trash text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Malboro 20</td>
-                <td>Cigarrillos</td>
-                <td>Barcelona</td>
-                <td>3</td>
-                <td>
-                  <i class="fas fa-edit text-primary"></i>
-                  <i class="fas fa-trash text-danger"></i>
+                  <i [routerLink]="['/edit-product', product._id]" class="fas fa-edit text-primary"></i>
+                  <i (click)="deleteProduct(product._id)" class="fas fa-trash text-danger"></i>
                 </td>
               </tr>
             </tbody>
           </table>
+          <h5
+            *ngIf="listProducts.length == 0"
+            style="text-align: start; margin-top: 10px"
+          >
+            No products to display
+          </h5>
         </div>
       </div>
     </div>
