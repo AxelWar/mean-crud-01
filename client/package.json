@@ -9,7 +9,7 @@
     "test": "ng test --watch=false --browsers ChromeHeadless",
     "lint": "pnpm exec eslint \"src/**/*.{js,jsx,ts,tsx,html}\" --quiet --fix",
     "format": "pnpm exec prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
-    "prepare": "cd ../ && husky install ./client/.husky"
+    "prepare": "cd .. && husky install client/.husky"
   },
   "private": true,
   "dependencies": {
