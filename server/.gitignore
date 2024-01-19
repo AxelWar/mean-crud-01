@@ -38,7 +38,7 @@ testem.log
 /typings
 
 # Security
-.env
+variables.env
 
 # System files
 .DS_Store
