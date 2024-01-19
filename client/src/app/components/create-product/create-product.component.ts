@@ -45,7 +45,7 @@ export class CreateProductComponent implements OnInit {
 
         if (this.id !== null) {
             this.productService.editProduct(this.id, PRODUCT).subscribe({
-                next: (value: any) => {
+                next: () => {
                     this.toastr.success(
                         'Product Updated Successfully!',
                         'Product Saved!'
@@ -59,7 +59,7 @@ export class CreateProductComponent implements OnInit {
             });
         } else {
             this.productService.createProduct(PRODUCT).subscribe({
-                next: (value: any) => {
+                next: () => {
                     this.toastr.success(
                         'Product Registered Successfully!',
                         'Product Saved!'
