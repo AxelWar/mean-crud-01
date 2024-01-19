@@ -5,21 +5,21 @@ import { ListProductsComponent } from './list-products.component';
 import { ProductService } from 'src/app/services/product.service';
 
 describe('ListProductsComponent', () => {
-  let component: ListProductsComponent;
-  let fixture: ComponentFixture<ListProductsComponent>;
+    let component: ListProductsComponent;
+    let fixture: ComponentFixture<ListProductsComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ListProductsComponent],
-      imports: [HttpClientTestingModule],
-      providers: [ProductService],
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [ListProductsComponent],
+            imports: [HttpClientTestingModule],
+            providers: [ProductService],
+        });
+        fixture = TestBed.createComponent(ListProductsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
     });
-    fixture = TestBed.createComponent(ListProductsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
