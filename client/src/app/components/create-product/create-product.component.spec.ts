@@ -4,6 +4,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { CreateProductComponent } from './create-product.component';
+import { ProductService } from 'src/app/services/product.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CreateProductComponent', () => {
     let component: CreateProductComponent;
@@ -17,7 +19,9 @@ describe('CreateProductComponent', () => {
                 ToastrModule.forRoot(),
                 FormsModule,
                 ReactiveFormsModule,
+                RouterTestingModule,
             ],
+            providers: [ProductService],
         });
         fixture = TestBed.createComponent(CreateProductComponent);
         component = fixture.componentInstance;
