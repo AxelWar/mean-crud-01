@@ -4,30 +4,30 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class ProductService {
-  url = 'http://localhost:4000/api/products/';
+    url = 'http://localhost:4000/api/products/';
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<any> {
-    return this.http.get(this.url);
-  }
+    getProducts(): Observable<any> {
+        return this.http.get(this.url);
+    }
 
-  deleteProduct(id: string): Observable<any> {
-    return this.http.delete(this.url + id);
-  }
+    deleteProduct(id: string): Observable<any> {
+        return this.http.delete(this.url + id);
+    }
 
-  createProduct(product: Product): Observable<any> {
-    return this.http.post(this.url, product);
-  }
+    createProduct(product: Product): Observable<any> {
+        return this.http.post(this.url, product);
+    }
 
-  getProduct(id: string): Observable<any> {
-    return this.http.get(this.url + id);
-  }
+    getProduct(id: string): Observable<any> {
+        return this.http.get(this.url + id);
+    }
 
-  editProduct(id: string, product: Product): Observable<any> {
-    return this.http.put(this.url + id, product);
-  }
+    editProduct(id: string, product: Product): Observable<any> {
+        return this.http.put(this.url + id, product);
+    }
 }

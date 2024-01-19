@@ -12,16 +12,16 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, CreateProductComponent, ListProductsComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ToastrModule.forRoot(),
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, CreateProductComponent, ListProductsComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ToastrModule.forRoot(),
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

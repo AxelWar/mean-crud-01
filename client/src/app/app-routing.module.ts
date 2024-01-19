@@ -7,14 +7,14 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { CreateProductComponent } from './components/create-product/create-product.component';
 
 const routes: Routes = [
-  { path: '', component: ListProductsComponent },
-  { path: 'create-product', component: CreateProductComponent },
-  { path: 'edit-product/:id', component: CreateProductComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+    { path: '', component: ListProductsComponent },
+    { path: 'create-product', component: CreateProductComponent },
+    { path: 'edit-product/:id', component: CreateProductComponent },
+    { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+    imports: [BrowserModule, RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}
