@@ -24,11 +24,14 @@ export class ProductService {
         return this.http.post<Product>(this.url, product);
     }
 
-    getProduct(id: string): Observable<Product> {
+    getProduct(id: string | null | undefined): Observable<Product> {
         return this.http.get<Product>(this.url + id);
     }
 
-    editProduct(id: string, product: Product): Observable<Product> {
+    editProduct(
+        id: string | null | undefined,
+        product: Product
+    ): Observable<Product> {
         return this.http.put<Product>(this.url + id, product);
     }
 }

@@ -11,6 +11,8 @@ import {
     productMock,
     productsMock,
 } from 'src/app/mocks/product.mock';
+import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from 'src/app/app-routing.module';
 
 describe('ListProductsComponent', () => {
     let component: ListProductsComponent;
@@ -20,7 +22,11 @@ describe('ListProductsComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [ListProductsComponent],
-            imports: [HttpClientTestingModule, ToastrModule.forRoot()],
+            imports: [
+                HttpClientTestingModule,
+                RouterTestingModule.withRoutes(routes),
+                ToastrModule.forRoot(),
+            ],
             providers: [
                 { provide: ProductService, useClass: ProductServiceStub },
             ],
