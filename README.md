@@ -1,6 +1,6 @@
 # CRUD Full Stack 
 
-This project purpose is to practice MEAN stack programming using MongoDB, Express, Angular and NodeJS.
+This project purpose is to practice FullStack Development using MongoDB, Express, Angular and NodeJS (MEAN Stack). Check it out!
 
 
 ## Tech Stack
