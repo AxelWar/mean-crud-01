@@ -25,23 +25,17 @@ export class ListProductsComponent implements OnInit {
             next: (data: Product[]) => {
                 this.listProducts = data;
             },
-            error: (error: any) => {
-                console.log(error);
-            },
         });
     }
 
-    deleteProduct(id: any) {
+    deleteProduct(id: string | null | undefined) {
         this.productService.deleteProduct(id).subscribe({
-            next: (data: any) => {
+            next: () => {
                 this.toastr.error(
                     'Product Deleted Successfully',
                     'Product Deleted'
                 );
                 this.getProducts();
-            },
-            error: (error: any) => {
-                console.log(error);
             },
         });
     }

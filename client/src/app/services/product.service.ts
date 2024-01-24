@@ -16,8 +16,8 @@ export class ProductService {
         return this.http.get<Product[]>(this.url);
     }
 
-    deleteProduct(id: string): Observable<ErrorMsg> {
-        return this.http.delete(this.url + id);
+    deleteProduct(id: string | null | undefined): Observable<ErrorMsg> {
+        return this.http.delete<ErrorMsg>(this.url + id);
     }
 
     createProduct(product: Product): Observable<Product> {
