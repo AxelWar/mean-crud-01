@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     { path: '', component: ListProductsComponent },
     { path: 'create-product', component: CreateProductComponent },
     { path: 'edit-product/:id', component: CreateProductComponent },

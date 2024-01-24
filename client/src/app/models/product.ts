@@ -1,9 +1,10 @@
 export class Product {
-    _id?: number;
+    _id?: string | null;
     name: string;
     category: string;
     location: string;
     price: number;
+    dateCreation?: string;
 
     constructor(
         name: string,

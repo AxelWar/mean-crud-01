@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,14 +13,15 @@ import { ProductService } from 'src/app/services/product.service';
 export class CreateProductComponent implements OnInit {
     productForm: FormGroup;
     title = 'Create Product';
-    id: string | null;
+    id: string | null | undefined;
 
     constructor(
         private fb: FormBuilder,
         private router: Router,
         private toastr: ToastrService,
         private productService: ProductService,
-        private aRoute: ActivatedRoute
+        private aRoute: ActivatedRoute,
+        private ngZone: NgZone
     ) {
         this.productForm = this.fb.group({
             name: ['', Validators.required],
@@ -43,18 +44,14 @@ export class CreateProductComponent implements OnInit {
             price: this.productForm.get('price')?.value,
         };
 
-        if (this.id !== null) {
+        if (this.id !== null && this.id !== undefined) {
             this.productService.editProduct(this.id, PRODUCT).subscribe({
                 next: () => {
                     this.toastr.success(
                         'Product Updated Successfully!',
                         'Product Saved!'
                     );
-                    this.router.navigate(['/']);
-                },
-                error: (error: any) => {
-                    console.log(error);
-                    this.productForm.reset();
+                    this.ngZone.run(() => this.router.navigate(['/'])).then();
                 },
             });
         } else {
@@ -64,18 +61,14 @@ export class CreateProductComponent implements OnInit {
                         'Product Registered Successfully!',
                         'Product Saved!'
                     );
-                    this.router.navigate(['/']);
-                },
-                error: (error: any) => {
-                    console.log(error);
-                    this.productForm.reset();
+                    this.ngZone.run(() => this.router.navigate(['/'])).then();
                 },
             });
         }
     }
 
     isEdit() {
-        if (this.id !== null) {
+        if (this.id !== null && this.id !== undefined) {
             this.title = 'Edit Product';
             this.productService.getProduct(this.id).subscribe((data) => {
                 this.productForm.setValue({

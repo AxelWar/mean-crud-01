@@ -1,19 +1,33 @@
 import { of } from 'rxjs';
+import {
+    deleteMsg,
+    invalidId,
+    productMock,
+    productsMock,
+} from './product.mock';
 
 export class ProductServiceStub {
     getProducts() {
-        return of([]);
+        return of(productsMock);
     }
+
     deleteProduct() {
-        return of([]);
+        return of(deleteMsg);
     }
+
     createProduct() {
-        return of([]);
+        return of(productMock);
     }
-    getProduct() {
-        return of([]);
+
+    getProduct(id: string) {
+        if (id === productMock._id) {
+            return of(productMock);
+        } else {
+            throw new Error(invalidId.msg);
+        }
     }
+
     editProduct() {
-        return of([]);
+        return of(productMock);
     }
 }
