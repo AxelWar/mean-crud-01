@@ -1,6 +1,6 @@
 # CRUD Full Stack 
 
-This project purpose is to practice MEAN stack programming using MongoDB, Express, Angular and NodeJS following the Udemy course of [Tomas Ruiz Diaz](https://www.udemy.com/course/crud-productos-stack-mean/)
+This project purpose is to practice MEAN stack programming using MongoDB, Express, Angular and NodeJS.
 
 
 ## Tech Stack
