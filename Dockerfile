@@ -2,7 +2,7 @@
 FROM node:20.10.0
 
 # Set the working directory in the Docker container
-WORKDIR /usr/src/app
+WORKDIR /server
 
 # Copy package.json and package-lock.json (if available) to the working directory
 COPY ./server/package*.json ./
