@@ -5,19 +5,19 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "4000:4000"
     volumes:
-      - ./server:/usr/src/app
+      - ./server:/
     environment:
-      - MONGO_DB_URL=mongodb://mongo:27017/mean-crud-01
+      - DB_MONGO=mongodb+srv://axelwarneke:admin123@cluster0.d7eybsc.mongodb.net/mean-products
     depends_on:
       - mongo
 
   client:
     image: node:20.10.0
-    working_dir: /usr/src/app
+    working_dir: ./client:/src/app
     volumes:
-      - ./client:/usr/src/app
+      - ./client:/src/app
     ports:
       - "4200:4200"
     command: sh -c "cd /usr/src/app && pnpm install && pnpm run start"
