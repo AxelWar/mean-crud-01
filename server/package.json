@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "MEAN API",
   "main": "index.js",
-  "engines": {
-    "node": "v20.10.0",
-    "npm": "10.2.3"
-},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ."
@@ -14,7 +10,9 @@
   "author": "Axel Warneke",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "cors": "^2.8.5",
